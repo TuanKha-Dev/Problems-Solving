@@ -1,24 +1,23 @@
 class Solution {
 public:
     int countPartitions(vector<int>& nums) {
-        int result = 0;
-        int sum = 0;
+        int totalSum = 0;
 
         for(int i = 0; i < nums.size(); i++) {
-            sum += nums[i];
+            totalSum += nums[i];
         }
 
         int leftSum = 0;
-        int rightSum = sum;
+        int count = 0;
 
         for(int i = 0; i < nums.size() - 1; i++) {
             leftSum += nums[i];
-            rightSum -= nums[i];
+            totalSum -= nums[i];
 
-            if((leftSum - rightSum) % 2 == 0)
-                result++;
+            if((leftSum - totalSum) % 2 == 0)
+                count++;
         }
 
-        return result;
+        return count;
     }
 };
