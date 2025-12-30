@@ -14,7 +14,7 @@ public:
             leftSum += nums[i];
             totalSum -= nums[i];
 
-            if((leftSum - totalSum) % 2 == 0)
+            if(leftSum % 2 == totalSum % 2)
                 count++;
         }
 
