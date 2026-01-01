@@ -2,25 +2,18 @@ class Solution {
 public:
     vector<int> plusOne(vector<int>& digits) {
         int n = digits.size();
-        bool remember = false;
 
         for(int i = n - 1; i >= 0; i--) {
-            if(digits[i] + 1 == 10) {
-                remember = true;
-                digits[i] = 0;
+            if(digits[i] < 9) {
+                digits[i]++;
+                return digits;
             }
             else {
-                digits[i]++;
-                remember = false;
+                digits[i] = 0;
             }
-
-            if(!remember)
-                break;
         }
 
-        if(remember) {
-            digits.insert(digits.begin(), 1);
-        }
+        digits.insert(digits.begin(), 1);
 
         return digits;
     }
